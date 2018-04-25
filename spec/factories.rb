@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :post do
-    title "MyString"
+    title "title"
+    description "description"
   end
 
   factory :user do
