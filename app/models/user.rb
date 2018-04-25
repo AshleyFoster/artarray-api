@@ -8,4 +8,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: { case_sensitive: false }
   validates :password, presence: true
   validates :authentication_token, uniqueness: true
+
+  has_many :posts
 end
