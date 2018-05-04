@@ -9,5 +9,10 @@ class User < ApplicationRecord
   validates :password, presence: true
   validates :authentication_token, uniqueness: true
 
-  has_many :posts
+  has_many :likes
+  has_many :posts, through: :likes
+
+  def likes?(post)
+    post.likes.where(user_id: id).any?
+  end
 end

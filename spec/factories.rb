@@ -1,7 +1,10 @@
 FactoryBot.define do
+  factory :like do
+  end
+
   factory :post do
-    title "title"
-    description "description"
+    title "Title"
+    description "Description"
   end
 
   factory :user do
