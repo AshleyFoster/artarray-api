@@ -51,9 +51,9 @@ describe "LikesController" do
         expect{
           delete "/api/posts/#{post.id}/like", headers: {
             'X-User-Email' => user.email,
-              'X-User-Token' => user.authentication_token
+            'X-User-Token' => user.authentication_token
           }
-        }.not_to change{Like.count}
+        }.to raise_exception(ActiveRecord::RecordNotFound)
       end
     end
   end

@@ -3,7 +3,8 @@ class Api::LikesController < Api::ApiController
   before_action :set_post
 
   def create
-    @like = @post.likes.where(user_id: current_user.id).first_or_create
+    @like = current_user.likes.find_or_create_by!(post_id: @post.id)
+    # @like = @post.likes.where(user_id: current_user.id).first_or_create
 
     unless @like.save
       render json: { error: "Unable to create like" }, status: 422
@@ -11,7 +12,10 @@ class Api::LikesController < Api::ApiController
   end
 
   def destroy
-    @like = @post.likes.where(user_id: current_user.id).destroy_all
+    @like = current_user.likes.find_by!(post_id: @post.id)
+    @like&.destroy
+
+    head 204
   end
 
   private

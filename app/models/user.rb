@@ -13,6 +13,6 @@ class User < ApplicationRecord
   has_many :posts, through: :likes
 
   def likes?(post)
-    post.likes.where(user_id: id).any?
+    likes.find_by(post_id: post_id).present?
   end
 end
