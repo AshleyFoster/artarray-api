@@ -6,7 +6,6 @@ class Api::LikesController < Api::ApiController
     @like = @post.likes.where(user_id: current_user.id).first_or_create
 
     unless @like.save
-      puts @like.errors.inspect
       render json: { error: "Unable to create like" }, status: 422
     end
   end
