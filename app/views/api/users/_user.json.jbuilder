@@ -1,5 +1,5 @@
 json.(
   user,
-  :id
-  :email
+  :id,
+  :email,
 )
