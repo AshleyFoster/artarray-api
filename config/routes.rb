@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
 
     root 'posts#index'
-    resources :posts
+    resources :posts do
+      resource :like
+    end
   end
 end
