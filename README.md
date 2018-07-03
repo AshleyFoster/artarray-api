@@ -22,3 +22,11 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## Installation
+git clone https://github.com/AshleyFoster/artarray-api;
+cd artarray-api;
+gem install bundler;
+bundle install;
+rake db:create db:migrate db:seed;
+rails s;
